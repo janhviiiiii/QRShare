@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.qrshare">
+    <!-- for scan fragment permission -->
+    <!-- Required to get img from camera -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Required to get img from camera & gallery -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_MEDIA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QRShare"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".XActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QRCodeDetailActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode" />
+
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LinkedinActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".SpotifyActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".FacebookActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".WhatsappActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".YoutubeActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".SnapchatActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".PinterestActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".InstagramActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".WifiActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".LocationActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".CopyActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".CompanyActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".EventActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".SMSActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".EmailActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".PhoneActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".ContactActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".WebsiteActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".TextActivity"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".navigation_bar"
+            android:exported="false" />
+        <activity
+            android:name=".Scan_Result"
+            android:exported="false"
+            android:parentActivityName=".navigation_bar" />
+        <activity
+            android:name=".Generate_Result"
+            android:exported="false"
+            android:parentActivityName=".TextActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+    </application>
+
+</manifest>

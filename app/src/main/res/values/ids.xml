@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_create" type="id" />
+    <item name="etxt_phone_no" type="id" />
+    <item name="etxt_security" type="id" />
+</resources>

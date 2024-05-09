@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">QRShare</string>
+
+    <!--Hyperlink text-->
+    <string name="alreadyuser">Already have an account? Login</string>
+    <string name="notuser">Don\'t have an account? Sign up</string>
+
+    <string name="signup">Join for free</string>
+
+    <!--ViewPager items headings -->
+    <string name="a_heading">heading 1</string>
+    <string name="b_heading">heading 2</string>
+    <string name="c_heading">heading 3</string>
+
+    <!--ViewPager items description -->
+    <string name="a_desc">description 1</string>
+    <string name="b_desc">description 2</string>
+    <string name="c_desc">description 3</string>
+
+    <!--Generate btn-->
+    <string name="generate">Generate</string>
+
+    <!--Website button names -->
+    <string name="https">https://</string>
+    <string name="http">http://</string>
+    <string name="www">www</string>
+    <string name="com">.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--About us-->
+    <string name="app_desc">QRShare is a convenient tool for generating and sharing QR codes. With QRShare, you can easily create QR codes for various types of information and share them with others.</string>
+    <string name="app_mission">Our mission is to make QR code sharing easy and convenient for users, and promote seamless information exchange.</string>
+
+
+
+
+
+</resources>

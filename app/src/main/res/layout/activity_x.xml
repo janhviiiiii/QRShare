@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".XActivity"
+android:orientation="vertical"
+android:background="@drawable/edbackground_img1">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_x"
+        android:layout_width="338dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="33dp"
+        android:gravity="center"
+        android:text="X"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+    <!-- x img-->
+    <ImageView
+        android:id="@+id/img_x"
+        android:layout_width="82dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/txt_x"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/x_1">
+
+    </ImageView>
+
+    <EditText
+        android:id="@+id/etxt_username"
+        android:layout_width="338dp"
+        android:layout_height="95dp"
+        android:layout_below="@id/img_x"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/white_border"
+        android:color="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_person1_24"
+        android:drawablePadding="8dp"
+        android:hint="Enter username*"
+        android:padding="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/cardview_dark_background"
+        android:textColorHint="@color/grey_1"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="299dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/etxt_username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/purple"
+        android:text="@string/generate"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="30dp" />
+
+    <ImageView
+        android:id="@+id/img_gen_qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_create"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"/>
+
+
+    <!-- Button to share the QR code  -->
+    <ImageButton
+        android:id="@+id/btn_share"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_gen_qr_code"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_share1_24"
+        app:cornerRadius="50dp" />
+
+
+    <!-- Button to dwld QR code-->
+    <ImageButton
+        android:id="@+id/btn_download"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_gen_qr_code"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_download1_24"
+        app:cornerRadius="50dp" />
+
+
+
+    <!-- Button to web search QR code -->
+    <ImageButton
+        android:id="@+id/btn_web_search"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_share"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_websearch1_24"
+        app:cornerRadius="50dp" />
+
+    <!-- Button to add the qr code to favorite-->
+    <ImageButton
+        android:id="@+id/btn_favorite"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_download"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_favorite1_24"
+        app:cornerRadius="50dp" />
+
+
+</RelativeLayout>
+
+</ScrollView>

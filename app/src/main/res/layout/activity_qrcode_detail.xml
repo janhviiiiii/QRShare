@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".QRCodeDetailActivity"
+android:orientation="vertical"
+android:background="@drawable/edbackground_img1">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_details"
+        android:layout_width="338dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="33dp"
+        android:gravity="center"
+        android:text="QR Code Details"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+
+    <ImageView
+        android:id="@+id/img_gen_qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_details"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp" />
+
+    <!-- Text view for content -->
+    <TextView
+        android:id="@+id/textContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_gen_qr_code"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:text="Content: "
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <!-- Text view for type -->
+    <TextView
+        android:id="@+id/textType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textContent"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:text="Type: "
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Text view for timestamp -->
+    <TextView
+        android:id="@+id/textTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textType"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:text="Timestamp: "
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+
+    <!-- Button to share the QR code  -->
+    <ImageButton
+        android:id="@+id/btn_share"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/textTimestamp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_share1_24"
+        app:cornerRadius="50dp" />
+
+
+    <!-- Button to dwld QR code-->
+    <ImageButton
+        android:id="@+id/btn_download"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/textTimestamp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_download1_24"
+        app:cornerRadius="50dp" />
+
+
+
+    <!-- Button to web search QR code -->
+    <ImageButton
+        android:id="@+id/btn_web_search"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_share"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_websearch1_24"
+        app:cornerRadius="50dp" />
+
+    <!-- Button to add the qr code to favorite-->
+    <ImageButton
+        android:id="@+id/btn_copy"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/btn_download"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/round_btn"
+        android:src="@drawable/ic_baseline_copy1_24"
+        app:cornerRadius="50dp" />
+
+
+</RelativeLayout>
+
+</ScrollView>

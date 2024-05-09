@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--for WIFI Activity-->
+
+<resources>
+    <string-array name="security">
+        <item>WPA/WPA2</item>
+        <item>WEP</item>
+        <item>No Encryption</item>
+    </string-array>
+</resources>
+
