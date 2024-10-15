@@ -118,7 +118,8 @@ To get started with the **QR Share** project, clone the repository and follow th
 For any questions, feedback, or inquiries, please feel free to reach out:
 
 - **Email:** janhvibaraskar03@gmail.com  
-- **GitHub:** [janhviiiiii](https://github.com/janhviiiiii)  
+- **GitHub:** [janhviiiiii](https://github.com/janhviiiiii)
+- **Linkedin:** [janhvi-baraskar](https://www.linkedin.com/in/janhvi-baraskar)
 
 Thank you for your interest in the **QR Share** project!
 
