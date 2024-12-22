@@ -77,6 +77,17 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 
 <br>
 
+### More Section
+
+<br>
+
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/77f73e24-1adf-4514-a4c8-33c9469d27d5" width="300" alt="More Section" />
+  <img src="https://github.com/user-attachments/assets/e4e11f57-e9a0-4f35-9dc4-f4b51d3477cc" width="300" alt="More Section about us" />
+</div>
+
+<br>
+
 ---
 
 ## Conclusion
