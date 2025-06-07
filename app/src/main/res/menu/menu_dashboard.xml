@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuGenerate"
+        android:icon="@drawable/ic_home"
+        android:title="Generate" />
+
+    <item
+        android:id="@+id/menuScan"
+        android:icon="@drawable/ic_qrcode"
+        android:title="Scan" />
+
+    <item
+        android:id="@+id/menuHistory"
+        android:icon="@drawable/ic_history"
+        android:title="History" />
+
+    <item
+        android:id="@+id/menuFavorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite" />
+
+
+</menu>

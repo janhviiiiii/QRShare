@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_view_height"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/logo_main" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/ivLogo"
+        android:layout_margin="@dimen/content_padding"
+        app:cardBackgroundColor="?attr/colorSecondary"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <!--        <ImageSwitcher-->
+        <!--            android:id="@+id/image_slider"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="300dp"-->
+        <!--            app:iss_auto_cycle="true"-->
+        <!--            app:iss_corner_radius="30"-->
+        <!--            app:iss_delay="1000"-->
+        <!--            app:iss_period="1000"-->
+        <!--            app:iss_title_background="@color/grey_1">-->
+        <!--            visi-->
+        <!--        </ImageSwitcher>-->
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="104dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="Join for free"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvLoginRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="31dp"
+        android:text="Already have an account? Login"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</RelativeLayout>
