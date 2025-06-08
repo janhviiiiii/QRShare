@@ -24,10 +24,10 @@
 
     <!-- Bottom Navigation Menu -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavView"
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_dashboard" />
+        app:menu="@menu/menu_bottom_dashboard" />
 
 </RelativeLayout>

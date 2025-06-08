@@ -8,6 +8,8 @@ import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.janhvi.qrshare.MainActivity;
+
 public class DialogUtils {
 
     private static final String TAG = DialogUtils.class.getSimpleName();
@@ -79,7 +81,8 @@ public class DialogUtils {
                     | Intent.FLAG_ACTIVITY_CLEAR_TASK
                     | Intent.FLAG_ACTIVITY_NEW_TASK;
             SharedPref.setIsLoggedIn(context, false);
-//            Helper.goToWithFlags(context, MainActivity.class, flags);
+            SharedPref.deleteAll(context);
+            Helper.goToWithFlags(context, MainActivity.class, flags);
         });
 
         builder.setNegativeButton("No", (dialog, id) -> dialog.cancel());

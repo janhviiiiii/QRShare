@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    android:layout_marginBottom="70dp"
+    android:layout_marginBottom="80dp"
     android:background="@drawable/bg_main"
     tools:context=".fragment.GenerateFragment">
 
@@ -50,6 +50,7 @@
             android:rowCount="3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvText"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -68,10 +69,11 @@
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_text_" />
+                        android:src="@drawable/ic_text_"
+                        app:tint="?attr/colorOnBackground" />
 
                     <TextView
-                        android:id="@+id/txt_text"
+                        android:id="@+id/tvText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -84,6 +86,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvWebsite"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -102,7 +105,8 @@
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_website" />
+                        android:src="@drawable/ic_website"
+                        app:tint="?attr/colorOnBackground"/>
 
                     <TextView
                         android:id="@+id/tvWebsite"
@@ -119,6 +123,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvContact"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -132,15 +137,16 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_contact"
+                        android:id="@+id/ivContact"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_contact" />
-                    
+                        android:src="@drawable/ic_contact"
+                        app:tint="?attr/colorOnBackground"/>
+
                     <TextView
-                        android:id="@+id/txt_contact"
+                        android:id="@+id/tvContact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -151,9 +157,8 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <!-- ROW 2-->
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvPhone"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -167,16 +172,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_phone"
+                        android:id="@+id/vPhone"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_phone_" />
+                        android:src="@drawable/ic_phone_"
+                        app:tint="?attr/colorOnBackground" />
 
 
                     <TextView
-                        android:id="@+id/txt_Phone"
+                        android:id="@+id/tvPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -189,6 +195,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvEmail"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -202,12 +209,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_email"
+                        android:id="@+id/ivEmail"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_email_" />
+                        android:src="@drawable/ic_email_"
+                        app:tint="?attr/colorOnBackground" />
 
                     <TextView
                         android:id="@+id/tvEmail"
@@ -218,11 +226,11 @@
                         android:textColor="?attr/colorOnBackground"
                         android:textSize="@dimen/textSizeSmallest" />
 
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfile"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -236,12 +244,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_profile"
+                        android:id="@+id/ivProfile"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_profile" />
+                        android:src="@drawable/ic_profile"
+                        app:tint="?attr/colorOnBackground" />
 
                     <TextView
                         android:id="@+id/tvProfile"
@@ -251,14 +260,11 @@
                         android:text="Profile"
                         android:textColor="?attr/colorOnBackground"
                         android:textSize="@dimen/textSizeSmallest" />
-
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <!--ROW 3-->
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvSms"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -272,12 +278,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_sms"
+                        android:id="@+id/ivSms"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_sms" />
+                        android:src="@drawable/ic_sms"
+                        app:tint="?attr/colorOnBackground" />
 
                     <TextView
                         android:id="@+id/tvSMS"
@@ -292,6 +299,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvEvent"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -305,12 +313,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_event"
+                        android:id="@+id/ivEvent"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
-                        android:src="@drawable/ic_event" />
+                        android:src="@drawable/ic_event"
+                        app:tint="?attr/colorOnBackground" />
 
                     <TextView
                         android:id="@+id/tvEvent"
@@ -326,6 +335,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvCompany"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -339,11 +349,12 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_company"
+                        android:id="@+id/ivCompany"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
+                        app:tint="?attr/colorOnBackground"
                         android:src="@drawable/ic_company" />
 
                     <TextView
@@ -359,6 +370,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvCopy"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -372,9 +384,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_copy"
+                        android:id="@+id/ivCopy"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
+                        app:tint="?attr/colorOnBackground"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
                         android:src="@drawable/ic_copy" />
@@ -393,6 +406,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvLocation"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -406,9 +420,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_location"
+                        android:id="@+id/ivLocation"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
+                        app:tint="?attr/colorOnBackground"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
                         android:src="@drawable/ic_location" />
@@ -426,6 +441,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvWifi"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -439,15 +455,16 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/img_wifi"
+                        android:id="@+id/ivWifi"
                         android:layout_width="@dimen/small_image_view_width"
                         android:layout_height="@dimen/small_image_view_height"
+                        app:tint="?attr/colorOnBackground"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="TODO"
                         android:src="@drawable/ic_wifi" />
 
                     <TextView
-                        android:id="@+id/txt_wifi"
+                        android:id="@+id/tvWifi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -482,6 +499,7 @@
             android:rowCount="3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvInstagram"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -515,6 +533,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvLinkedin"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -536,7 +555,7 @@
                         android:src="@drawable/ic_linkedin" />
 
                     <TextView
-                        android:id="@+id/tvLinkdin"
+                        android:id="@+id/tvLinkdein"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -548,6 +567,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvYoutube"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -581,6 +601,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvWhatsapp"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -614,6 +635,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvFacebook"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -647,6 +669,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvSpotify"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -680,6 +703,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvPinterest"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -713,6 +737,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvSnapchat"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
@@ -746,6 +771,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvX"
                 android:layout_width="@dimen/card_view_width"
                 android:layout_height="@dimen/card_view_height"
                 android:layout_margin="@dimen/card_view_padding"
