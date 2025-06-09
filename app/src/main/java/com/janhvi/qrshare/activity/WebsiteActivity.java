@@ -70,26 +70,10 @@ public class WebsiteActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initListener() {
         btnSubmit.setOnClickListener(this);
-
-        chipHttp.setOnClickListener(v -> {
-            chipHttps.setChecked(false);
-            chipHttp.setChecked(!chipHttp.isChecked());
-        });
-
-        chipHttps.setOnClickListener(v -> {
-            chipHttp.setChecked(false);
-            chipHttps.setChecked(!chipHttps.isChecked());
-        });
-
-        // Toggle for www chip
-        chipWww.setOnClickListener(v -> {
-            chipWww.setChecked(!chipWww.isChecked());
-        });
-
-        // Toggle for .edu chip
-        chipEdu.setOnClickListener(v -> {
-            chipEdu.setChecked(!chipEdu.isChecked());
-        });
+        chipHttps.setOnClickListener(this);
+        chipHttp.setOnClickListener(this);
+        chipWww.setOnClickListener(this);
+        chipEdu.setOnClickListener(this);
     }
 
     @Override
@@ -101,6 +85,18 @@ public class WebsiteActivity extends AppCompatActivity implements View.OnClickLi
             } catch (WriterException e) {
                 throw new RuntimeException(e);
             }
+        } else if (v instanceof Chip) {
+            Chip chip = (Chip) v;
+            String chipText = chip.getText().toString();
+            appendToUrlField(chipText);
+        }
+    }
+
+    private void appendToUrlField(String text) {
+        String current = Helper.getStringFromInput(etUrl);
+        if (!current.contains(text)) {
+            etUrl.setText(current + text);
+            etUrl.setSelection(etUrl.getText().length()); // move cursor to end
         }
     }
 
@@ -108,7 +104,7 @@ public class WebsiteActivity extends AppCompatActivity implements View.OnClickLi
         View[] view = {etUrl};
         if (Helper.isEmptyFieldValidation(view)) {
             String rawInput = Helper.getStringFromInput(etUrl);
-            String finalUrl = buildUrlFromChips(rawInput);
+            String finalUrl = buildUrlFromChips("url:" + rawInput);
 
             Bitmap bitmap = Helper.textToImageEncode(context, finalUrl);
 
