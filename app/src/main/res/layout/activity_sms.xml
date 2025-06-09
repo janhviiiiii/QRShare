@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rlTextActivity"
+    android:id="@+id/rlSmsActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
-    tools:context=".activity.TextActivity">
+    tools:context=".activity.SmsActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -25,28 +25,39 @@
             android:padding="@dimen/layout_padding">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_padding"
-                app:boxStrokeColor="@color/white"
-                app:counterTextColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:startIconDrawable="@drawable/ic_text"
-                app:startIconTint="@color/white">
+                app:startIconDrawable="@drawable/ic_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etText"
+                    android:id="@+id/etPhoneNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Text"
-                    android:inputType="textMultiLine"
-                    android:minLines="5"
+                    android:hint="Enter Phone Number"
+                    android:inputType="phone|number"
                     android:textColor="?attr/colorOnBackground"
-                    tools:ignore="HardcodedText">
+                    tools:ignore="HardcodedText" />
 
-                    <requestFocus />
-                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_padding"
+                app:startIconDrawable="@drawable/ic_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Message"
+                    android:inputType="textMultiLine"
+                    android:minLines="2"
+                    android:textColor="?attr/colorOnBackground"
+                    tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton

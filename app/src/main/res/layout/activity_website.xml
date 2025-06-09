@@ -71,14 +71,10 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding"
-                app:boxStrokeColor="@color/white"
-                app:counterTextColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:startIconTint="@color/white">
+                android:layout_marginTop="@dimen/layout_padding">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUrl"
@@ -86,10 +82,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter Url"
                     android:inputType="text"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/colorOnBackground"
                     tools:ignore="HardcodedText">
-
-                    <requestFocus />
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
