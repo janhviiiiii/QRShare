@@ -10,7 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.janhvi.qrshare.MainActivity;
 import com.janhvi.qrshare.R;
+import com.janhvi.qrshare.activity.TextActivity;
+import com.janhvi.qrshare.activity.WebsiteActivity;
+import com.janhvi.qrshare.utility.Helper;
 
 
 public class GenerateFragment extends Fragment implements View.OnClickListener {
@@ -96,11 +100,9 @@ public class GenerateFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.cvText) {
-
-        } else if (id == R.id.cvText) {
-
+            Helper.goTo(context, TextActivity.class);
         } else if (id == R.id.cvWebsite) {
-
+            Helper.goTo(context, WebsiteActivity.class);
         } else if (id == R.id.cvContact) {
 
         } else if (id == R.id.cvPhone) {

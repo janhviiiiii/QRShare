@@ -127,10 +127,13 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(IMAGE, qrCode.getImage());
         values.put(IS_FAVORITE, qrCode.getIsFavorite());
 
-        if (qrCode.getQid() == 0) {  // Insert new Qrcode
-            return db.insert(TABLE_QRCODE, null, values);
-        } else {  // Update existing Qrcode
-            return db.update(TABLE_QRCODE, values, QRCODE_ID + " = ?", new String[]{String.valueOf(qrCode.getQid())});
+        if (qrCode.getQid() == 0) {  // Insert new QRCode
+            long newRowId = db.insert(TABLE_QRCODE, null, values);
+            qrCode.setQid(newRowId); // properly set the ID here
+            return newRowId;
+        } else {  // Update existing QRCode
+            db.update(TABLE_QRCODE, values, QRCODE_ID + " = ?", new String[]{String.valueOf(qrCode.getQid())});
+            return qrCode.getQid();
         }
     }
 

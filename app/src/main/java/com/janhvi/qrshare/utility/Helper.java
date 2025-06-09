@@ -1,17 +1,17 @@
 package com.janhvi.qrshare.utility;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -22,8 +22,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.janhvi.qrshare.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,6 +37,9 @@ import java.util.Objects;
 @SuppressLint("SimpleDateFormat")
 public class Helper {
     private static final String TAG = Helper.class.getSimpleName();
+    public final static int QRCodeWidth = 500;
+    public final static int QRCodeHeight = 500;
+
 
     public static void showToast(Context context, String message) {
         try {
@@ -55,6 +63,18 @@ public class Helper {
 
     public static void goToAndFinish(Context context, Class<?> activity) {
         Intent intent = new Intent(context, activity);
+        context.startActivity(intent);
+
+        // If the context is an instance of Activity, finish the current activity
+        if (context instanceof Activity) {
+            ((Activity) context).finish();
+        }
+    }
+    public static void goToAndFinish(Context context, Class<?> activity, String name, Serializable value) {
+        Intent intent = new Intent(context, activity);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(name, value);
+        intent.putExtras(bundle);
         context.startActivity(intent);
 
         // If the context is an instance of Activity, finish the current activity
@@ -397,5 +417,37 @@ public class Helper {
         return isValidate;
     }
 
+    public static Bitmap textToImageEncode(Context context, String value) throws WriterException {
+        BitMatrix bitMatrix;
+        try {
+            bitMatrix = new MultiFormatWriter().encode(value,
+                    BarcodeFormat.QR_CODE, QRCodeWidth, QRCodeHeight, null);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+
+        int bitMatrixWidth = bitMatrix.getWidth();
+        int bitMatrixHeight = bitMatrix.getHeight();
+        int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
+
+        for (int y = 0; y < bitMatrixHeight; y++) {
+            int offSet = y * bitMatrixWidth;
+            for (int x = 0; x < bitMatrixWidth; x++) {
+                pixels[offSet + x] = bitMatrix.get(x, y) ?
+                        ContextCompat.getColor(context, R.color.black) :
+                        ContextCompat.getColor(context, R.color.white);
+            }
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_8888);
+        bitmap.setPixels(pixels, 0, bitMatrixWidth, 0, 0, bitMatrixWidth, bitMatrixHeight);
+        return bitmap;
+    }
+
+    public static byte[] bitmapToByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
 
 }

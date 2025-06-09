@@ -12,7 +12,7 @@
     <dimen name="start_margin">10sp</dimen>
     <dimen name="textSizeInButton">15sp</dimen>
     <dimen name="bottom_menu_height">85dp</dimen>
-    <dimen name="textSizeSmallest">14sp</dimen>
+    <dimen name="textSizeSmallest">12sp</dimen>
     <dimen name="textSizeSmall">16sp</dimen>
     <dimen name="textSizeInEditText">18sp</dimen>
     <dimen name="textSizeLarge">35sp</dimen>
@@ -28,8 +28,8 @@
     <dimen name="image_view_height">150dp</dimen>
     <dimen name="image_view_width">150dp</dimen>
 
-    <dimen name="card_view_height">100dp</dimen>
-    <dimen name="card_view_width">100dp</dimen>
+    <dimen name="card_view_height">90dp</dimen>
+    <dimen name="card_view_width">90dp</dimen>
     <dimen name="card_view_padding">10dp</dimen>
 
     <dimen name="small_image_view_height_p">67dp</dimen>

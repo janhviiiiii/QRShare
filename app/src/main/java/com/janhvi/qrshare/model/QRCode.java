@@ -4,17 +4,30 @@ import java.io.Serializable;
 import java.sql.Blob;
 
 public class QRCode implements Serializable {
-    private int qid;
+    private long qid;
     private String content, type, date, time;
     private byte[] image;
     private int isFavorite;
 
-    public int getQid() {
+    public QRCode() {
+    }
+
+    public QRCode(String content, String type, String date, String time, byte[] image, int isFavorite) {
+        this.content = content;
+        this.type = type;
+        this.date = date;
+        this.time = time;
+        this.image = image;
+        this.isFavorite = isFavorite;
+    }
+
+
+    public long getQid() {
         return qid;
     }
 
-    public void setQid(int qid) {
-        qid = qid;
+    public void setQid(long qid) {
+        this.qid = qid;
     }
 
     public String getContent() {

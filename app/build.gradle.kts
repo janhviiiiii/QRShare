@@ -43,5 +43,6 @@ dependencies {
 
     //for image slider
 //    implementation (libs.imageslideshow)
+    implementation (libs.core)
 
 }
