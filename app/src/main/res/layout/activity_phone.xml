@@ -24,21 +24,38 @@
             android:orientation="vertical"
             android:padding="@dimen/layout_padding">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding">
+                android:layout_marginTop="@dimen/layout_padding"
+                android:weightSum="2">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etContact"
-                    android:layout_width="match_parent"
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/countryCodePicker"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:color="@color/white"
+                    app:ccp_arrowColor="@color/white"
+                    app:ccp_contentColor="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Contact"
-                    android:inputType="text"
-                    android:textColor="?attr/colorOnBackground"
-                    tools:ignore="HardcodedText" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_weight="1.5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Contact"
+                        android:inputType="phone"
+                        android:textColor="?attr/colorOnBackground"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSubmit"
