@@ -6,14 +6,25 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.telecom.PhoneAccount;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.janhvi.qrshare.MainActivity;
 import com.janhvi.qrshare.R;
+import com.janhvi.qrshare.activity.CompanyActivity;
+import com.janhvi.qrshare.activity.ContactActivity;
+import com.janhvi.qrshare.activity.CopyActivity;
+import com.janhvi.qrshare.activity.EmailActivity;
+import com.janhvi.qrshare.activity.EventActivity;
+import com.janhvi.qrshare.activity.LocationActivity;
+import com.janhvi.qrshare.activity.PhoneActivity;
+import com.janhvi.qrshare.activity.ProfileActivity;
+import com.janhvi.qrshare.activity.SmsActivity;
 import com.janhvi.qrshare.activity.TextActivity;
 import com.janhvi.qrshare.activity.WebsiteActivity;
+import com.janhvi.qrshare.activity.WifiActivity;
 import com.janhvi.qrshare.utility.Helper;
 
 
@@ -104,25 +115,25 @@ public class GenerateFragment extends Fragment implements View.OnClickListener {
         } else if (id == R.id.cvWebsite) {
             Helper.goTo(context, WebsiteActivity.class);
         } else if (id == R.id.cvContact) {
-
+            Helper.goTo(context, ContactActivity.class);
         } else if (id == R.id.cvPhone) {
-
+            Helper.goTo(context, PhoneActivity.class);
         } else if (id == R.id.cvEmail) {
-
+            Helper.goTo(context, EmailActivity.class);
         } else if (id == R.id.cvProfile) {
-
+            Helper.goTo(context, ProfileActivity.class);
         } else if (id == R.id.cvSms) {
-
+            Helper.goTo(context, SmsActivity.class);
         } else if (id == R.id.cvEvent) {
-
+            Helper.goTo(context, EventActivity.class);
         } else if (id == R.id.cvCompany) {
-
+            Helper.goTo(context, CompanyActivity.class);
         } else if (id == R.id.cvCopy) {
-
+            Helper.goTo(context, CopyActivity.class);
         } else if (id == R.id.cvLocation) {
-
+            Helper.goTo(context, LocationActivity.class);
         } else if (id == R.id.cvWifi) {
-
+            Helper.goTo(context, WifiActivity.class);
         } else if (id == R.id.cvInstagram) {
 
         } else if (id == R.id.cvLinkedin) {

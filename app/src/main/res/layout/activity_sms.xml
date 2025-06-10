@@ -28,8 +28,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding"
-                app:startIconDrawable="@drawable/ic_text">
+                android:layout_marginTop="@dimen/layout_padding">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPhoneNo"
@@ -46,8 +45,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_padding"
-                app:startIconDrawable="@drawable/ic_text">
+                android:layout_marginTop="@dimen/layout_padding">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMsg"
