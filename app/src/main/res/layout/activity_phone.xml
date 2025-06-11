@@ -65,7 +65,8 @@
                 android:backgroundTint="?attr/colorPrimary"
                 android:text="GENERATE QR CODE"
                 android:textColor="@color/white"
-                android:textSize="@dimen/textSizeMedium" />
+                android:textSize="@dimen/textSizeMedium"
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
     </ScrollView>
