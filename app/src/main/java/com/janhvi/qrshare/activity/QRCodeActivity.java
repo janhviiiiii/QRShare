@@ -1,5 +1,6 @@
 package com.janhvi.qrshare.activity;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
     public static final String TAG = QRCodeActivity.class.getSimpleName();
     private RelativeLayout rlQRCodeActivity;
     private ImageView ivQrCode;
+    private TextView tvScannedContent;
     private MaterialButton btnShare, btnSearch, btnDownload, btnFavorite;
     private Context context;
     private DbHelper dbHelper;
@@ -60,6 +63,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initUI() {
         rlQRCodeActivity = findViewById(R.id.rlQRCodeActivity);
+        tvScannedContent = findViewById(R.id.tvScannedContent);
         btnFavorite = findViewById(R.id.btnFavorite);
         btnSearch = findViewById(R.id.btnSearch);
         btnDownload = findViewById(R.id.btnDownload);
@@ -80,6 +84,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         btnFavorite.setOnClickListener(this);
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadIntentData() {
         entity = (QRCode) getIntent().getSerializableExtra(Constants.QRCODE);
 
@@ -91,6 +96,9 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
                 ivQrCode.setImageBitmap(bitmap);
             }
+        } else if (entity.getType() != null && entity.getType().equals("Scanned")) {
+            tvScannedContent.setVisibility(View.VISIBLE);
+            tvScannedContent.setText("SCANNED CONTENT: \n" + entity.getContent());
         }
     }
 

@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janhvi.qrshare.R;
 import com.janhvi.qrshare.fragment.GenerateFragment;
+import com.janhvi.qrshare.fragment.ScanFragment;
 import com.janhvi.qrshare.utility.DialogUtils;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -97,7 +98,7 @@ public class DashboardActivity extends AppCompatActivity {
                     selectedFragment = new GenerateFragment();
                     title = "Generate";
                 } else if (id == R.id.menuScan) {
-//                    selectedFragment = new ScanFragment();
+                    selectedFragment = new ScanFragment();
                     title = "Scan";
                 } else if (id == R.id.menuHistory) {
 //                    selectedFragment = new HistoryFragment();
