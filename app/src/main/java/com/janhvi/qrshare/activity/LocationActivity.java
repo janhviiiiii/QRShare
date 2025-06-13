@@ -49,7 +49,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initUI() {
-        rlLocationActivity = findViewById(R.id.rlEmailActivity);
+        rlLocationActivity = findViewById(R.id.rlLocationActivity);
         etLatitude = findViewById(R.id.etName);
         etLongitude = findViewById(R.id.etSubject);
         btnSubmit = findViewById(R.id.btnSubmit);
