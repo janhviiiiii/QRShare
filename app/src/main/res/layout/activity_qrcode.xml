@@ -43,7 +43,8 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/content_padding"
                     android:textColor="?attr/colorOnPrimary"
-                    android:textSize="@dimen/textSizeInEditText" />
+                    android:textSize="@dimen/textSizeInEditText"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,8 +91,8 @@
                     android:text="Copy Content"
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSizeSmallest"
-                    app:cornerRadius="0dp"
                     android:visibility="gone"
+                    app:cornerRadius="0dp"
                     app:icon="@drawable/ic_copy" />
 
             </LinearLayout>

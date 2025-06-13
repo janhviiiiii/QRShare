@@ -106,6 +106,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
             if (entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
                 btnCopyToClipboard.setVisibility(VISIBLE);
                 btnDownload.setVisibility(GONE);
+                tvScannedContent.setVisibility(VISIBLE);
                 tvScannedContent.setText("SCANNED CONTENT: \n" + entity.getContent());
             }
         }
