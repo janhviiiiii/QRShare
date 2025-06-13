@@ -1,7 +1,12 @@
 package com.janhvi.qrshare.activity;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -40,7 +45,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
     private RelativeLayout rlQRCodeActivity;
     private ImageView ivQrCode;
     private TextView tvScannedContent;
-    private MaterialButton btnShare, btnSearch, btnDownload, btnFavorite;
+    private MaterialButton btnShare, btnCopyToClipboard, btnSearch, btnDownload, btnFavorite;
     private Context context;
     private DbHelper dbHelper;
     private QRCode entity;
@@ -66,6 +71,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         tvScannedContent = findViewById(R.id.tvScannedContent);
         btnFavorite = findViewById(R.id.btnFavorite);
         btnSearch = findViewById(R.id.btnSearch);
+        btnCopyToClipboard = findViewById(R.id.btnCopyToClipboard);
         btnDownload = findViewById(R.id.btnDownload);
         btnShare = findViewById(R.id.btnShare);
         ivQrCode = findViewById(R.id.ivQrCode);
@@ -81,6 +87,7 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         btnDownload.setOnClickListener(this);
         btnShare.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
+        btnCopyToClipboard.setOnClickListener(this);
         btnFavorite.setOnClickListener(this);
     }
 
@@ -96,9 +103,11 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
                 ivQrCode.setImageBitmap(bitmap);
             }
-        } else if (entity.getType() != null && entity.getType().equals("Scanned")) {
-            tvScannedContent.setVisibility(View.VISIBLE);
-            tvScannedContent.setText("SCANNED CONTENT: \n" + entity.getContent());
+            if (entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
+                btnCopyToClipboard.setVisibility(VISIBLE);
+                btnDownload.setVisibility(GONE);
+                tvScannedContent.setText("SCANNED CONTENT: \n" + entity.getContent());
+            }
         }
     }
 
@@ -113,6 +122,8 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
             onClickBtnSearch();
         } else if (id == R.id.btnFavorite) {
             onClickBtnFavorite();
+        } else if (id == R.id.btnCopyToClipboard) {
+            onClickBtnCopy();
         }
     }
 
@@ -179,6 +190,18 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    private void onClickBtnCopy() {
+        if (entity.getContent() != null || entity.getContent().isEmpty()) {
+            String content = entity.getContent();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("QR Code Content", content);
+            clipboard.setPrimaryClip(clip);
+
+            Helper.makeSnackBar(rlQRCodeActivity, "Copied to clipboard");
+        } else {
+            Helper.makeSnackBar(rlQRCodeActivity, "No content to copy");
+        }
+    }
 
     private void onClickBtnSearch() {
         if (entity != null && entity.getContent() != null) {

@@ -35,18 +35,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/content_padding"
                 android:background="@color/secondaryColor_dark">
 
                 <TextView
                     android:id="@+id/tvScannedContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/layout_padding"
-                    android:text="Content:\n djjdkkd hdj jddk"
+                    android:padding="@dimen/content_padding"
                     android:textColor="?attr/colorOnPrimary"
-                    android:textSize="@dimen/textSizeInEditText"
-                    android:visibility="gone" />
+                    android:textSize="@dimen/textSizeInEditText" />
             </LinearLayout>
 
             <LinearLayout
@@ -64,11 +61,12 @@
                     android:backgroundTint="?attr/colorPrimary"
                     android:text="Share"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeSmallest"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_share" />
 
                 <View
-                    android:layout_width="10dp"
+                    android:layout_width="3dp"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.button.MaterialButton
@@ -79,8 +77,23 @@
                     android:backgroundTint="?attr/colorPrimary"
                     android:text="Download"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeSmallest"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_download" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopyToClipboard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:text="Copy Content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeSmallest"
+                    app:cornerRadius="0dp"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_copy" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -98,11 +111,12 @@
                     android:backgroundTint="?attr/colorPrimary"
                     android:text="Search"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeSmallest"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_search" />
 
                 <View
-                    android:layout_width="10dp"
+                    android:layout_width="3dp"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.button.MaterialButton
@@ -113,6 +127,7 @@
                     android:backgroundTint="?attr/colorPrimary"
                     android:text="Favorite"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/textSizeSmallest"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_favorite" />
             </LinearLayout>

@@ -6,18 +6,11 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -30,10 +23,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
@@ -48,12 +37,7 @@ import com.janhvi.qrshare.utility.Helper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
-
 public class ScanFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG = ScanFragment.class.getSimpleName();
@@ -222,7 +206,7 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
 
             QRCode qrCode = new QRCode();
             qrCode.setContent(resultBuilder.toString());
-            qrCode.setType("Scanned");
+            qrCode.setType(Constants.SCANNED);
             qrCode.setDate(Helper.getCurrentDate());
             qrCode.setTime(Helper.getCurrentTime());
             qrCode.setImage(imageByteArray);
