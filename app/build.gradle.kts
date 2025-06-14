@@ -49,4 +49,7 @@ dependencies {
     implementation(libs.core)
     implementation(libs.ccp)
 
+    implementation (libs.play.services.maps)
+
+
 }

@@ -92,6 +92,12 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBfgt9QhIf0A6KhhDIIk-Bu4Hk2Gz7hEkE" />
+
     </application>
 
 </manifest>
