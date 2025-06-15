@@ -41,7 +41,7 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Register");
+        toolbar.setTitle("Text");
     }
 
     private void initUI() {

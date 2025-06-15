@@ -87,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private void onClickBtnSubmit() throws WriterException {
         View[] view = {etName, etEmail, etContact, etAddress};
         if (Helper.isEmptyFieldValidation(view) && Helper.isContactValid(etContact) && Helper.isEmailValid(etEmail)) {
-            String content = "Company name: " + Helper.getStringFromInput(etName) +
+            String content = "Profile:\nName: " + Helper.getStringFromInput(etName) +
                     "\nEmail: " + Helper.getStringFromInput(etEmail) +
                     "\nContact: " + Helper.getStringFromInput(etContact) +
                     "\nAddress: " + Helper.getStringFromInput(etAddress) +
