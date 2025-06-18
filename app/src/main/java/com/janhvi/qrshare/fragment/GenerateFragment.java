@@ -18,6 +18,7 @@ import com.janhvi.qrshare.activity.ContactActivity;
 import com.janhvi.qrshare.activity.CopyActivity;
 import com.janhvi.qrshare.activity.EmailActivity;
 import com.janhvi.qrshare.activity.EventActivity;
+import com.janhvi.qrshare.activity.InstagramActivity;
 import com.janhvi.qrshare.activity.LocationActivity;
 import com.janhvi.qrshare.activity.PhoneActivity;
 import com.janhvi.qrshare.activity.ProfileActivity;
@@ -135,7 +136,7 @@ public class GenerateFragment extends Fragment implements View.OnClickListener {
         } else if (id == R.id.cvWifi) {
             Helper.goTo(context, WifiActivity.class);
         } else if (id == R.id.cvInstagram) {
-
+            Helper.goTo(context, InstagramActivity.class);
         } else if (id == R.id.cvLinkedin) {
 
         } else if (id == R.id.cvYoutube) {
