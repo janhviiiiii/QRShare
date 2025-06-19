@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.janhvi.qrshare.fragment.SecondSocialFragment;
 import com.janhvi.qrshare.fragment.FirstSocialFragment;
+import com.janhvi.qrshare.fragment.SecondSocialFragment;
 import com.janhvi.qrshare.utility.Constants;
 
-public class InstagramPagerAdapter extends FragmentStateAdapter {
+public class YoutubePagerAdapter extends FragmentStateAdapter {
 
-    public InstagramPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public YoutubePagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
@@ -19,9 +19,9 @@ public class InstagramPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 0)
-            return new FirstSocialFragment(Constants.INSTAGRAM);
+            return new FirstSocialFragment(Constants.YOUTUBE);
         else
-            return new SecondSocialFragment(Constants.INSTAGRAM);
+            return new SecondSocialFragment(Constants.YOUTUBE);
     }
 
     @Override

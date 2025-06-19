@@ -61,6 +61,19 @@ public class Helper {
         context.startActivity(intent);
     }
 
+    public static void goToWithSocialType(Context context, Class<?> activity, String name, Serializable value) {
+        Intent intent = new Intent(context, activity);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(name, value);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+
+        // If the context is an instance of Activity, finish the current activity
+//        if (context instanceof Activity) {
+//            ((Activity) context).finish();
+//        }
+    }
+
     public static void goToAndFinish(Context context, Class<?> activity) {
         Intent intent = new Intent(context, activity);
         context.startActivity(intent);

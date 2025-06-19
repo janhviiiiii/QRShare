@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
-    tools:context=".activity.InstagramActivity">
+    tools:context=".activity.SocialActivity">
 
     <!-- Toolbar -->
     <include
@@ -27,7 +27,30 @@
             android:layout_width="@dimen/image_icon_width"
             android:layout_height="@dimen/image_icon_height"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_instagram" />
+            android:contentDescription="Instagram"
+            app:srcCompat="@drawable/ic_instagram"
+            tools:ignore="HardcodedText"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivYoutube"
+            android:layout_width="@dimen/image_icon_width"
+            android:layout_height="@dimen/image_icon_height"
+            android:layout_gravity="center"
+            android:contentDescription="Instagram"
+            app:srcCompat="@drawable/ic_youtube"
+            tools:ignore="HardcodedText"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="@dimen/image_icon_width"
+            android:layout_height="@dimen/image_icon_height"
+            android:layout_gravity="center"
+            android:contentDescription="Instagram"
+            app:srcCompat="@drawable/ic_facebook"
+            tools:ignore="HardcodedText"
+            android:visibility="gone"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

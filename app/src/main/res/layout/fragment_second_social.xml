@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlSecondSocialFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/layout_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_padding">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etInstagramLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter full Instagram profile link"
+                android:inputType="textUri"
+                android:textColor="?attr/colorOnBackground"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etYoutubeVideoId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Youtube Video Id"
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFacebookLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter full Facebook profile link"
+                android:inputType="textUri"
+                android:textColor="?attr/colorOnBackground"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_padding"
+            android:backgroundTint="?attr/colorPrimary"
+            android:text="GENERATE QR CODE"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</RelativeLayout>

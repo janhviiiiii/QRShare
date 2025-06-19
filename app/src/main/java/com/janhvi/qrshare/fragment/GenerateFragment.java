@@ -6,19 +6,17 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.telecom.PhoneAccount;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.janhvi.qrshare.MainActivity;
 import com.janhvi.qrshare.R;
 import com.janhvi.qrshare.activity.CompanyActivity;
 import com.janhvi.qrshare.activity.ContactActivity;
 import com.janhvi.qrshare.activity.CopyActivity;
 import com.janhvi.qrshare.activity.EmailActivity;
 import com.janhvi.qrshare.activity.EventActivity;
-import com.janhvi.qrshare.activity.InstagramActivity;
+import com.janhvi.qrshare.activity.SocialActivity;
 import com.janhvi.qrshare.activity.LocationActivity;
 import com.janhvi.qrshare.activity.PhoneActivity;
 import com.janhvi.qrshare.activity.ProfileActivity;
@@ -26,6 +24,7 @@ import com.janhvi.qrshare.activity.SmsActivity;
 import com.janhvi.qrshare.activity.TextActivity;
 import com.janhvi.qrshare.activity.WebsiteActivity;
 import com.janhvi.qrshare.activity.WifiActivity;
+import com.janhvi.qrshare.utility.Constants;
 import com.janhvi.qrshare.utility.Helper;
 
 
@@ -136,15 +135,15 @@ public class GenerateFragment extends Fragment implements View.OnClickListener {
         } else if (id == R.id.cvWifi) {
             Helper.goTo(context, WifiActivity.class);
         } else if (id == R.id.cvInstagram) {
-            Helper.goTo(context, InstagramActivity.class);
+            Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.INSTAGRAM);
         } else if (id == R.id.cvLinkedin) {
 
         } else if (id == R.id.cvYoutube) {
-
+            Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.YOUTUBE);
         } else if (id == R.id.cvWhatsapp) {
 
         } else if (id == R.id.cvFacebook) {
-
+            Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.FACEBOOK);
         } else if (id == R.id.cvSpotify) {
 
         } else if (id == R.id.cvPinterest) {

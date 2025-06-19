@@ -5,4 +5,9 @@ public class Constants {
     public static final String QRCODE = "QRCODE";
     public static final String SCANNED = "Scanned";
     public static final String API_KEY = "AIzaSyBfgt9QhIf0A6KhhDIIk-Bu4Hk2Gz7hEkE";
+    //Social Types
+    public static final String SOCIAL_TYPE = "SocialType";
+    public static final String INSTAGRAM = "Instagram";
+    public static final String YOUTUBE = "Youtube";
+    public static final String FACEBOOK = "Facebook";
 }
