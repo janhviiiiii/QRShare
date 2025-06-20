@@ -19,6 +19,7 @@ import com.janhvi.qrshare.activity.QRCodeActivity;
 import com.janhvi.qrshare.database.DbHelper;
 import com.janhvi.qrshare.model.QRCode;
 import com.janhvi.qrshare.utility.Constants;
+import com.janhvi.qrshare.utility.DialogUtils;
 import com.janhvi.qrshare.utility.Helper;
 
 public class FirstSocialFragment extends Fragment implements View.OnClickListener {
@@ -27,7 +28,7 @@ public class FirstSocialFragment extends Fragment implements View.OnClickListene
     private RelativeLayout rootLayout;
     private Context context;
     private DbHelper dbHelper;
-    private String socialType = "na";
+    private String socialType;
 
     public FirstSocialFragment(String type) {
         super(R.layout.fragment_first_social); // define this layout
@@ -94,6 +95,9 @@ public class FirstSocialFragment extends Fragment implements View.OnClickListene
             String username = Helper.getStringFromInput(etInstagramUsername).trim();
             String content = "https://instagram.com/" + username;
 
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
             try {
                 Bitmap bitmap = Helper.textToImageEncode(context, content);
                 if (bitmap != null) {
@@ -108,15 +112,21 @@ public class FirstSocialFragment extends Fragment implements View.OnClickListene
 
                     long result = dbHelper.addOrUpdateQRCode(qrCode);
                     qrCode.setQid(result);
+
+                    // Dismiss loading
+                    DialogUtils.dismissDialog();
+
                     if (result != -1) {
                         Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
                     } else {
                         Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
                     }
                 } else {
+                    DialogUtils.dismissDialog();
                     Helper.makeSnackBar(rootLayout, "Error generating QR code");
                 }
             } catch (WriterException e) {
+                DialogUtils.dismissDialog();
                 e.printStackTrace();
                 Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
             }
@@ -124,8 +134,89 @@ public class FirstSocialFragment extends Fragment implements View.OnClickListene
     }
 
     private void generateYoutubeQRCode() {
+        if (Helper.isEmptyFieldValidation(new View[]{etYoutubeLink})) {
+            String content = Helper.getStringFromInput(etYoutubeLink).trim();
+
+            if (!content.startsWith("http://") && !content.startsWith("https://")) {
+                content = "https://" + content; // ensure it's a valid URL
+            }
+
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
+            try {
+                Bitmap bitmap = Helper.textToImageEncode(context, content);
+                if (bitmap != null) {
+                    byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
+                    QRCode qrCode = new QRCode();
+                    qrCode.setContent(content);
+                    qrCode.setType("YouTube Link");
+                    qrCode.setDate(Helper.getCurrentDate());
+                    qrCode.setTime(Helper.getCurrentTime());
+                    qrCode.setImage(imageBytes);
+                    qrCode.setIsFavorite(0);
+
+                    long result = dbHelper.addOrUpdateQRCode(qrCode);
+                    qrCode.setQid(result);
+
+                    DialogUtils.dismissDialog();
+
+                    if (result != -1) {
+                        Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
+                    } else {
+                        Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
+                    }
+                } else {
+                    DialogUtils.dismissDialog();
+                    Helper.makeSnackBar(rootLayout, "Error generating QR code");
+                }
+            } catch (WriterException e) {
+                DialogUtils.dismissDialog();
+                e.printStackTrace();
+                Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
+            }
+        }
     }
 
+
     private void generateFacebookQRCode() {
+        if (Helper.isEmptyFieldValidation(new View[]{etFacebookUsername})) {
+            String username = Helper.getStringFromInput(etFacebookUsername).trim();
+            String content = "https://facebook.com/" + username;
+
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
+            try {
+                Bitmap bitmap = Helper.textToImageEncode(context, content);
+                if (bitmap != null) {
+                    byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
+                    QRCode qrCode = new QRCode();
+                    qrCode.setContent(content);
+                    qrCode.setType("Facebook Username");
+                    qrCode.setDate(Helper.getCurrentDate());
+                    qrCode.setTime(Helper.getCurrentTime());
+                    qrCode.setImage(imageBytes);
+                    qrCode.setIsFavorite(0);
+
+                    long result = dbHelper.addOrUpdateQRCode(qrCode);
+                    qrCode.setQid(result);
+
+                    DialogUtils.dismissDialog();
+                    if (result != -1) {
+                        Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
+                    } else {
+                        Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
+                    }
+                } else {
+                    DialogUtils.dismissDialog();
+                    Helper.makeSnackBar(rootLayout, "Error generating QR code");
+                }
+            } catch (WriterException e) {
+                DialogUtils.dismissDialog();
+                e.printStackTrace();
+                Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
+            }
+        }
     }
 }

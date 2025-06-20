@@ -19,6 +19,7 @@ import com.janhvi.qrshare.activity.QRCodeActivity;
 import com.janhvi.qrshare.database.DbHelper;
 import com.janhvi.qrshare.model.QRCode;
 import com.janhvi.qrshare.utility.Constants;
+import com.janhvi.qrshare.utility.DialogUtils;
 import com.janhvi.qrshare.utility.Helper;
 
 public class SecondSocialFragment extends Fragment implements View.OnClickListener {
@@ -28,7 +29,7 @@ public class SecondSocialFragment extends Fragment implements View.OnClickListen
     private RelativeLayout rootLayout;
     private Context context;
     private DbHelper dbHelper;
-    private String socialType = "na";
+    private String socialType;
 
     public SecondSocialFragment(String type) {
         super(R.layout.fragment_second_social); // layout file defined below
@@ -97,6 +98,10 @@ public class SecondSocialFragment extends Fragment implements View.OnClickListen
                 content = "https://" + content; // prepend if missing
             }
 
+
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
             try {
                 Bitmap bitmap = Helper.textToImageEncode(context, content);
                 if (bitmap != null) {
@@ -111,15 +116,20 @@ public class SecondSocialFragment extends Fragment implements View.OnClickListen
 
                     long result = dbHelper.addOrUpdateQRCode(qrCode);
                     qrCode.setQid(result);
+
+                    DialogUtils.dismissDialog();
+
                     if (result != -1) {
                         Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
                     } else {
                         Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
                     }
                 } else {
+                    DialogUtils.dismissDialog();
                     Helper.makeSnackBar(rootLayout, "Error generating QR code");
                 }
             } catch (WriterException e) {
+                DialogUtils.dismissDialog();
                 e.printStackTrace();
                 Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
             }
@@ -127,9 +137,86 @@ public class SecondSocialFragment extends Fragment implements View.OnClickListen
     }
 
     private void generateYoutubeQRCode() {
+        if (Helper.isEmptyFieldValidation(new View[]{etYoutubeVideoId})) {
+            String content = Helper.getStringFromInput(etYoutubeVideoId).trim();
+
+            if (!content.startsWith("http://") && !content.startsWith("https://")) {
+                content = "https://www.youtube.com/watch?v=" + content; // append video ID to full YouTube URL
+            }
+
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
+            try {
+                Bitmap bitmap = Helper.textToImageEncode(context, content);
+                if (bitmap != null) {
+                    byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
+                    QRCode qrCode = new QRCode();
+                    qrCode.setContent(content);
+                    qrCode.setType("YouTube Video");
+                    qrCode.setDate(Helper.getCurrentDate());
+                    qrCode.setTime(Helper.getCurrentTime());
+                    qrCode.setImage(imageBytes);
+                    qrCode.setIsFavorite(0);
+
+                    long result = dbHelper.addOrUpdateQRCode(qrCode);
+                    qrCode.setQid(result);
+                    if (result != -1) {
+                        Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
+                    } else {
+                        Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
+                    }
+                } else {
+                    DialogUtils.dismissDialog();
+                    Helper.makeSnackBar(rootLayout, "Error generating QR code");
+                }
+            } catch (WriterException e) {
+                DialogUtils.dismissDialog();
+                e.printStackTrace();
+                Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
+            }
+        }
     }
 
     private void generateFacebookQRCode() {
-    }
+        if (Helper.isEmptyFieldValidation(new View[]{etFacebookLink})) {
+            String content = Helper.getStringFromInput(etFacebookLink).trim();
 
+            if (!content.startsWith("http://") && !content.startsWith("https://")) {
+                content = "https://" + content; // prepend https if missing
+            }
+
+            // Show loading
+            DialogUtils.showLoadingDialog(context, "Generating QR Code...");
+
+            try {
+                Bitmap bitmap = Helper.textToImageEncode(context, content);
+                if (bitmap != null) {
+                    byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
+                    QRCode qrCode = new QRCode();
+                    qrCode.setContent(content);
+                    qrCode.setType("Facebook Link");
+                    qrCode.setDate(Helper.getCurrentDate());
+                    qrCode.setTime(Helper.getCurrentTime());
+                    qrCode.setImage(imageBytes);
+                    qrCode.setIsFavorite(0);
+
+                    long result = dbHelper.addOrUpdateQRCode(qrCode);
+                    qrCode.setQid(result);
+                    if (result != -1) {
+                        Helper.goToAndFinish(context, QRCodeActivity.class, Constants.QRCODE, qrCode);
+                    } else {
+                        Helper.makeSnackBar(rootLayout, "Failed to generate QR Code");
+                    }
+                } else {
+                    DialogUtils.dismissDialog();
+                    Helper.makeSnackBar(rootLayout, "Error generating QR code");
+                }
+            } catch (WriterException e) {
+                DialogUtils.dismissDialog();
+                e.printStackTrace();
+                Helper.makeSnackBar(rootLayout, "Exception: " + e.getMessage());
+            }
+        }
+    }
 }

@@ -4,51 +4,45 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
 import com.janhvi.qrshare.MainActivity;
+import com.janhvi.qrshare.R;
 
 public class DialogUtils {
 
     private static final String TAG = DialogUtils.class.getSimpleName();
 
-    // Show loading dialog
-//    public static Dialog showLoadingDialog(Context context, String message, Dialog dialog) {
-//        try {
-//            DialogUtils.dismissDialog(dialog);
-//            dialog = new Dialog(context, androidx.appcompat.R.style.Base_Theme_AppCompat_Dialog);
-//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-//            dialog.setContentView(R.layout.loading);
-//            TextView tvLoadingText = dialog.findViewById(R.id.tvLoadingText);
-//            if (message.trim().isEmpty()) {
-//                tvLoadingText.setVisibility(View.GONE);
-//            } else {
-//                tvLoadingText.setText(message);
-//                tvLoadingText.setVisibility(View.VISIBLE);
-//            }
-//            dialog.setCancelable(false);
-//            dialog.show();
-//            return dialog;
-//        } catch (Exception e) {
-//            Log.e(TAG, "Error in DialogUtils: ", e);
-//        }
-//        return null;
-//    }
+    private static Dialog dialog;
 
-    // Dismiss a dialog
-    public static void dismissDialog(Dialog dialog) {
-        try {
-            if (dialog != null) {
-                try {
-                    dialog.cancel();
-                } catch (Exception e) {
-                    Log.e(TAG, "Error in DialogUtils: ", e);
-                }
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error in DialogUtils: ", e);
+    public static void showLoadingDialog(Context context, String message) {
+        if (dialog != null && dialog.isShowing()) {
+            return;
+        }
+
+        dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.loading);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+
+        TextView tvLoadingText = dialog.findViewById(R.id.tvLoadingText);
+        tvLoadingText.setText(message);
+
+        dialog.show();
+    }
+
+    public static void dismissDialog() {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+            dialog = null;
         }
     }
 
