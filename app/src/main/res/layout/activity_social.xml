@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/layout_padding"
             app:tabIndicatorColor="@color/black"
-            app:tabSelectedTextColor="?attr/colorOnPrimary"
+            app:tabSelectedTextColor="?attr/colorOnBackground"
             app:tabTextColor="@color/neutralGrey" />
     </LinearLayout>
 

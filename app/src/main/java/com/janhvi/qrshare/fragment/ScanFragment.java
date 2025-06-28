@@ -225,6 +225,7 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
                     imageUri = result.getData().getData();
                     ivQrCode.setVisibility(View.VISIBLE);
+                    btnScan.setVisibility(View.VISIBLE);
                     ivQrCode.setImageURI(imageUri);
                 } else {
                     Helper.makeSnackBar(svScanFragment, "Cancelled");
@@ -235,6 +236,7 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     ivQrCode.setVisibility(View.VISIBLE);
+                    btnScan.setVisibility(View.VISIBLE);
                     ivQrCode.setImageURI(imageUri);
                 } else {
                     Helper.makeSnackBar(svScanFragment, "Cancelled...");

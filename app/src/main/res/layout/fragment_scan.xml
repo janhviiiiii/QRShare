@@ -74,6 +74,7 @@
             android:layout_margin="@dimen/content_padding"
             android:backgroundTint="?attr/colorPrimary"
             android:text="Scan"
+            android:visibility="gone"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/textSizeMedium"
             android:textStyle="bold" />
