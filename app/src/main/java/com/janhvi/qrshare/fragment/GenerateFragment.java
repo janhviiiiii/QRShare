@@ -16,6 +16,7 @@ import com.janhvi.qrshare.activity.ContactActivity;
 import com.janhvi.qrshare.activity.CopyActivity;
 import com.janhvi.qrshare.activity.EmailActivity;
 import com.janhvi.qrshare.activity.EventActivity;
+import com.janhvi.qrshare.activity.MoreSocialActivity;
 import com.janhvi.qrshare.activity.SocialActivity;
 import com.janhvi.qrshare.activity.LocationActivity;
 import com.janhvi.qrshare.activity.PhoneActivity;
@@ -137,21 +138,21 @@ public class GenerateFragment extends Fragment implements View.OnClickListener {
         } else if (id == R.id.cvInstagram) {
             Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.INSTAGRAM);
         } else if (id == R.id.cvLinkedin) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.LINKEDIN);
         } else if (id == R.id.cvYoutube) {
             Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.YOUTUBE);
         } else if (id == R.id.cvWhatsapp) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.WHATSAPP);
         } else if (id == R.id.cvFacebook) {
             Helper.goToWithSocialType(context, SocialActivity.class, Constants.SOCIAL_TYPE, Constants.FACEBOOK);
         } else if (id == R.id.cvSpotify) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.SPOTIFY);
         } else if (id == R.id.cvPinterest) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.PINTEREST);
         } else if (id == R.id.cvSnapchat) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.SNAPCHAT);
         } else if (id == R.id.cvX) {
-
+            Helper.goToWithSocialType(context, MoreSocialActivity.class, Constants.SOCIAL_TYPE, Constants.X);
         }
     }
 }

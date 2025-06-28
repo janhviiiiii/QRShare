@@ -10,4 +10,10 @@ public class Constants {
     public static final String INSTAGRAM = "Instagram";
     public static final String YOUTUBE = "Youtube";
     public static final String FACEBOOK = "Facebook";
+    public static final String WHATSAPP = "Whatsapp";
+    public static final String  SNAPCHAT = "Snapchat";
+    public static final String  LINKEDIN = "Linkedin";
+    public static final String PINTEREST = "Pinterest";
+    public static final String X = "X";
+    public static final String SPOTIFY = "Spotify";
 }

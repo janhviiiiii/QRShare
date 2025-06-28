@@ -1,6 +1,7 @@
 package com.janhvi.qrshare.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +40,17 @@ public class SocialActivity extends AppCompatActivity {
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Instagram");
+        switch (socialType) {
+            case Constants.INSTAGRAM:
+                toolbar.setTitle("Instagram");
+                break;
+            case Constants.YOUTUBE:
+                toolbar.setTitle("YouTube");
+                break;
+            case Constants.FACEBOOK:
+                toolbar.setTitle("FaceBook");
+                break;
+        }
     }
 
     private void loadIntentData() {
@@ -67,18 +78,31 @@ public class SocialActivity extends AppCompatActivity {
     }
 
     private void loadTabs() {
-        if (socialType.equals(Constants.INSTAGRAM)) {
-            instagramPagerAdapter = new InstagramPagerAdapter(this);
-            viewPager.setAdapter(instagramPagerAdapter);
-            loadInstagramTabs();
-        } else if (socialType.equals(Constants.YOUTUBE)) {
-            youtubePagerAdapter = new YoutubePagerAdapter(this);
-            viewPager.setAdapter(youtubePagerAdapter);
-            loadYoutubeTabs();
-        } else if (socialType.equals(Constants.FACEBOOK)) {
-            facebookPagerAdapter = new FacebookPagerAdapter(this);
-            viewPager.setAdapter(facebookPagerAdapter);
-            loadFacebookTabs();
+        switch (socialType) {
+            case Constants.INSTAGRAM:
+                ivInstagram.setVisibility(View.VISIBLE);
+                ivYoutube.setVisibility(View.GONE);
+                ivFacebook.setVisibility(View.GONE);
+                instagramPagerAdapter = new InstagramPagerAdapter(this);
+                viewPager.setAdapter(instagramPagerAdapter);
+                loadInstagramTabs();
+                break;
+            case Constants.YOUTUBE:
+                ivInstagram.setVisibility(View.GONE);
+                ivYoutube.setVisibility(View.VISIBLE);
+                ivFacebook.setVisibility(View.GONE);
+                youtubePagerAdapter = new YoutubePagerAdapter(this);
+                viewPager.setAdapter(youtubePagerAdapter);
+                loadYoutubeTabs();
+                break;
+            case Constants.FACEBOOK:
+                ivInstagram.setVisibility(View.GONE);
+                ivYoutube.setVisibility(View.GONE);
+                ivFacebook.setVisibility(View.VISIBLE);
+                facebookPagerAdapter = new FacebookPagerAdapter(this);
+                viewPager.setAdapter(facebookPagerAdapter);
+                loadFacebookTabs();
+                break;
         }
     }
 

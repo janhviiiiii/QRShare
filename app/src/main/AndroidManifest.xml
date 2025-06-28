@@ -26,6 +26,9 @@
         android:theme="@style/Theme.QRShare"
         tools:targetApi="31">
         <activity
+            android:name=".activity.MoreSocialActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SocialActivity"
             android:exported="false" />
         <activity

@@ -23,9 +23,7 @@ public class DialogUtils {
     private static Dialog dialog;
 
     public static void showLoadingDialog(Context context, String message) {
-        if (dialog != null && dialog.isShowing()) {
-            return;
-        }
+        if (dialog != null && dialog.isShowing()) return;
 
         dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -71,9 +69,7 @@ public class DialogUtils {
 
         builder.setPositiveButton("Yes", (dialog, id) -> {
             dialog.cancel();
-            int flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    | Intent.FLAG_ACTIVITY_NEW_TASK;
+            int flags = Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK;
             SharedPref.setIsLoggedIn(context, false);
             SharedPref.deleteAll(context);
             Helper.goToWithFlags(context, MainActivity.class, flags);
@@ -87,12 +83,9 @@ public class DialogUtils {
     public static AlertDialog confirmationDialog(final Context context, String confirmationText, DialogInterface.OnClickListener onDeleteClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (confirmationText == null) confirmationText = "perform this operation";
-        builder.setMessage("Are you sure you want to " + confirmationText + "?" +
-                "\nWARNING: This action cannot be undone");
+        builder.setMessage("Are you sure you want to " + confirmationText + "?" + "\nWARNING: This action cannot be undone");
         builder.setPositiveButton("Yes", onDeleteClickListener);
         builder.setNegativeButton("No", (dialog, id) -> dialog.cancel());
         return builder.create();
     }
-
-
 }
