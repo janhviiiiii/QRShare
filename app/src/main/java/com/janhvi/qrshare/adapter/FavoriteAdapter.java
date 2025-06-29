@@ -15,27 +15,24 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.janhvi.qrshare.R;
 import com.janhvi.qrshare.activity.QRCodeActivity;
 import com.janhvi.qrshare.database.DbHelper;
-import com.janhvi.qrshare.fragment.HistoryFragment;
 import com.janhvi.qrshare.model.QRCode;
 import com.janhvi.qrshare.utility.Constants;
 import com.janhvi.qrshare.utility.DialogUtils;
-import com.janhvi.qrshare.utility.Helper;
 
 import java.util.List;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
-    public static final String TAG = HistoryAdapter.class.getSimpleName();
+public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+    public static final String TAG = FavoriteAdapter.class.getSimpleName();
     private final Context context;
     private List<QRCode> qrCodeList;
     private DbHelper dbHelper;
 
-    public HistoryAdapter(Context context, List<QRCode> qrCodeList) {
+    public FavoriteAdapter(Context context, List<QRCode> qrCodeList) {
         this.context = context;
         this.qrCodeList = qrCodeList;
         this.dbHelper = new DbHelper(context);
@@ -49,7 +46,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                 notifyDataSetChanged();
             }
         } catch (Exception exception) {
-            Log.e(TAG, "Error in History Adapter", exception);
+            Log.e(TAG, "Error in Favorite Adapter", exception);
         }
     }
 
@@ -57,12 +54,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View detailItem = inflater.inflate(R.layout.list_view_history, parent, false);
+        View detailItem = inflater.inflate(R.layout.list_view_favorite, parent, false);
         return new ViewHolder(detailItem);
     }
 
-
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
@@ -88,23 +83,22 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                     holder.ivQRCode.setImageResource(R.drawable.ic_qrcode);
                 }
 
-                holder.ivDelete.setOnClickListener(v -> {
-                    String confirmationText = "remove QRCode from history";
+                holder.ivFavorite.setOnClickListener(v -> {
+                    String confirmationText = "remove QRCode from favorite";
 
                     AlertDialog dialog = DialogUtils.confirmationDialog(
                             context,
                             confirmationText,
                             (dialogInterface, i) -> {
-//                                dbHelper.deleteQRCodeByQid((int) qrCode.getQid());
-
-                                if (dbHelper.deleteQRCodeByQid((int) qrCode.getQid())) {
+                                if (dbHelper.removeQrCodeFromFavorite((int) qrCode.getQid())) {
                                     qrCodeList.remove(position);
                                     notifyItemRemoved(position);
-                                    notifyItemRangeChanged(position, qrCodeList.size()); // Optional
+                                    notifyItemRangeChanged(position, qrCodeList.size());
                                 }
                             }
                     );
                     dialog.show();
+
                 });
 
                 holder.itemView.setOnClickListener(v -> {
@@ -130,10 +124,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return qrCodeList.size();
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvQRType, tvQRContent, tvQRDateTime;
-        private final ImageView ivQRCode, ivDelete;
+        private final ImageView ivQRCode, ivFavorite;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -141,7 +134,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             tvQRContent = itemView.findViewById(R.id.tvQRContent);
             tvQRDateTime = itemView.findViewById(R.id.tvQRDateTime);
             ivQRCode = itemView.findViewById(R.id.ivQRCode);
-            ivDelete = itemView.findViewById(R.id.ivDelete);
+            ivFavorite = itemView.findViewById(R.id.ivFavorite);
         }
     }
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/content_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- QR Image -->
+            <ImageView
+                android:id="@+id/ivQRCode"
+                android:layout_width="@dimen/image_icon_width"
+                android:layout_height="@dimen/image_icon_height"
+                android:contentDescription="QR Code Image"
+                android:scaleType="centerCrop" />
+
+            <!-- QR Details Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_padding"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- QR Type -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvQRType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:text="Text"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="@dimen/textSizeMedium"
+                    android:textStyle="bold" />
+
+                <!-- QR Content -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvQRContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="https://example.com"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textSize="@dimen/textSizeInEditText" />
+
+                <!-- Date & Time -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvQRDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="28 Jun 2025 • 2:15 PM"
+                    android:textColor="@color/neutralGrey"
+                    android:textSize="@dimen/textSizeSmall" />
+            </LinearLayout>
+
+            <!-- Delete Button -->
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="@dimen/small_image_icon_width"
+                android:layout_height="@dimen/small_image_icon_height"
+                android:layout_marginStart="@dimen/small_padding"
+                android:contentDescription="Favorite"
+                android:src="@drawable/ic_favorite"
+                app:tint="@color/errorColor_dark"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

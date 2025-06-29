@@ -10,6 +10,12 @@ public class User implements Serializable {
     public User() {
 
     }
+    public User(long uid, String email, String username, String password) {
+        this.uid = uid;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
 
     public User(long uid, String email, String username) {
         this.uid = uid;

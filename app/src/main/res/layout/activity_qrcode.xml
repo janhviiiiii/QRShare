@@ -130,7 +130,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textSizeSmallest"
                     app:cornerRadius="0dp"
-                    app:icon="@drawable/ic_favorite" />
+                    app:icon="@drawable/ic_favorite_border" />
             </LinearLayout>
 
         </LinearLayout>

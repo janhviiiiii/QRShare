@@ -20,16 +20,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.zxing.WriterException;
 import com.janhvi.qrshare.R;
 import com.janhvi.qrshare.database.DbHelper;
 import com.janhvi.qrshare.model.QRCode;
@@ -105,11 +100,18 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
             }
             boolean isHistoryView = getIntent().getBooleanExtra(String.valueOf(Constants.IS_HISTORY_VIEW), false);
 
-            if (isHistoryView  || entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
+            if (isHistoryView || entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
                 btnCopyToClipboard.setVisibility(VISIBLE);
                 btnDownload.setVisibility(GONE);
                 tvScannedContent.setVisibility(VISIBLE);
                 tvScannedContent.setText("QR Code CONTENT: \n" + entity.getContent());
+            }
+
+            // Set favorite icon state
+            if (entity.getIsFavorite() == 1) {
+                btnFavorite.setIconResource(R.drawable.ic_favorite);
+            } else {
+                btnFavorite.setIconResource(R.drawable.ic_favorite_border);
             }
         }
     }
@@ -181,17 +183,23 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-
     private void onClickBtnFavorite() {
         if (entity != null) {
             int newFavorite = entity.getIsFavorite() == 1 ? 0 : 1;
             entity.setIsFavorite(newFavorite);
             dbHelper.addOrUpdateQRCode(entity);
 
-            Helper.makeSnackBar(rlQRCodeActivity,
-                    newFavorite == 1 ? "Marked as Favorite" : "Removed from Favorites");
+            // Change icon based on favorite state
+            if (newFavorite == 1) {
+                btnFavorite.setIconResource(R.drawable.ic_favorite); // Filled heart
+                Helper.makeSnackBar(rlQRCodeActivity, "Marked as Favorite");
+            } else {
+                btnFavorite.setIconResource(R.drawable.ic_favorite_border); // Outline heart
+                Helper.makeSnackBar(rlQRCodeActivity, "Removed from Favorites");
+            }
         }
     }
+
 
     private void onClickBtnCopy() {
         if (entity.getContent() != null || entity.getContent().isEmpty()) {

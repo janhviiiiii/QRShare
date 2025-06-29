@@ -88,6 +88,29 @@ public class DbHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public User getUserByUid(long uid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                TABLE_USER,
+                new String[]{UID, EMAIL, USERNAME, PASSWORD},  // include PASSWORD
+                UID + " = ?",
+                new String[]{String.valueOf(uid)},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String email = cursor.getString(cursor.getColumnIndexOrThrow(EMAIL));
+            String username = cursor.getString(cursor.getColumnIndexOrThrow(USERNAME));
+            String password = cursor.getString(cursor.getColumnIndexOrThrow(PASSWORD)); // get password
+            cursor.close();
+            return new User(uid, email, username, password); // use constructor with password
+        }
+
+        if (cursor != null) cursor.close();
+        return null;
+    }
+
 
     public long addOrUpdateUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -114,6 +137,40 @@ public class DbHelper extends SQLiteOpenHelper {
 
         if (cursor != null) cursor.close();
         return result;
+    }
+
+    public boolean updatePassword(long uid, String oldPassword, String newPassword) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // First, verify the old password matches
+        Cursor cursor = db.query(
+                TABLE_USER,
+                new String[]{PASSWORD},
+                UID + " = ?",
+                new String[]{String.valueOf(uid)},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String currentPassword = cursor.getString(cursor.getColumnIndexOrThrow(PASSWORD));
+            cursor.close();
+
+            if (currentPassword != null && currentPassword.equals(oldPassword)) {
+                ContentValues values = new ContentValues();
+                values.put(PASSWORD, newPassword);
+
+                int rowsUpdated = db.update(
+                        TABLE_USER,
+                        values,
+                        UID + " = ?",
+                        new String[]{String.valueOf(uid)}
+                );
+                return rowsUpdated > 0;
+            }
+        }
+
+        if (cursor != null) cursor.close();
+        return false;
     }
 
 
@@ -170,6 +227,46 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public List<QRCode> getFavoriteQRCodes() {
+        List<QRCode> favoriteList = new ArrayList<>();
+
+        try (SQLiteDatabase db = this.getReadableDatabase();
+             Cursor cursor = db.query(
+                     TABLE_QRCODE,
+                     null,
+                     IS_FAVORITE + " = ?",
+                     new String[]{"1"},
+                     null, null, null)) {
+
+            while (cursor.moveToNext()) {
+                favoriteList.add(getQRCodeFromCursor(cursor));
+            }
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error loading favorite QR codes: ", e);
+        }
+
+        return favoriteList;
+    }
+
+    public boolean removeQrCodeFromFavorite(int qid) {
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
+            ContentValues values = new ContentValues();
+            values.put(IS_FAVORITE, 0); // set favorite to false (0)
+
+            int rowsUpdated = db.update(
+                    TABLE_QRCODE,
+                    values,
+                    QRCODE_ID + " = ?",
+                    new String[]{String.valueOf(qid)}
+            );
+
+            return rowsUpdated > 0;
+        } catch (Exception e) {
+            Log.e(TAG, "Error removing QR code from favorites", e);
+            return false;
+        }
+    }
 
     private QRCode getQRCodeFromCursor(Cursor cursor) {
         QRCode qrCode = new QRCode();

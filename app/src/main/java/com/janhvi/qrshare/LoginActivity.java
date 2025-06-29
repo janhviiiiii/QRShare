@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int id = v.getId();
         if (id == R.id.btnSubmit) {
             onClickBtnSubmit();
-        } else if (id == R.id.tvLoginRedirect) {
+        } else if (id == R.id.tvRegisterRedirect) {
             onClickRegisterRedirect();
         }
     }

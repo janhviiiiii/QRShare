@@ -29,17 +29,17 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
-        <!--        <ImageSwitcher-->
-        <!--            android:id="@+id/image_slider"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="300dp"-->
-        <!--            app:iss_auto_cycle="true"-->
-        <!--            app:iss_corner_radius="30"-->
-        <!--            app:iss_delay="1000"-->
-        <!--            app:iss_period="1000"-->
-        <!--            app:iss_title_background="@color/grey_1">-->
-        <!--            visi-->
-        <!--        </ImageSwitcher>-->
+        <ImageSwitcher
+            android:id="@+id/image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:inAnimation="@android:anim/fade_in"
+            android:outAnimation="@android:anim/fade_out"
+            app:cardCornerRadius="30dp">
+
+=
+        </ImageSwitcher>
 
 
     </androidx.cardview.widget.CardView>

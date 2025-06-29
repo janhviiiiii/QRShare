@@ -100,16 +100,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean isValidated() {
-        if (Helper.isPasswordValid(etPassword)) {
-            return true;
+        if (!Helper.isPasswordValid(etPassword)) {
+            return false;
         }
-        if (Objects.equals(Helper.getStringFromInput(etPassword), Helper.getStringFromInput(etConfirmPassword))) {
-            return true;
-        } else {
+
+        String password = Helper.getStringFromInput(etPassword);
+        String confirmPassword = Helper.getStringFromInput(etConfirmPassword);
+
+        if (!password.equals(confirmPassword)) {
             Helper.makeSnackBar(rlRegisterActivity, "Password and Confirm Password do not match");
+            return false;
         }
-        return false;
+
+        return true;
     }
+
 
     private void setUserEntity() {
         entity.setEmail(Helper.getStringFromInput(etEmail));

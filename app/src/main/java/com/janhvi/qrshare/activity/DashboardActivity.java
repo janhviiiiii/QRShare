@@ -1,6 +1,7 @@
 package com.janhvi.qrshare.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janhvi.qrshare.R;
+import com.janhvi.qrshare.dialog.AlertChangePasswordDialog;
+import com.janhvi.qrshare.dialog.AlertViewOrUpdateProfileDialog;
+import com.janhvi.qrshare.fragment.FavoriteFragment;
 import com.janhvi.qrshare.fragment.GenerateFragment;
 import com.janhvi.qrshare.fragment.HistoryFragment;
 import com.janhvi.qrshare.fragment.ScanFragment;
@@ -28,6 +32,7 @@ public class DashboardActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private Toolbar toolbar;
     private Context context;
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +64,12 @@ public class DashboardActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.menuProfile) {
-//            dialog = new AlertViewOrUpdateProfileDialog(context)
-//                    .openProfileDialog();
+            dialog = new AlertViewOrUpdateProfileDialog(context)
+                    .openProfileDialog();
             return true;
         } else if (id == R.id.menuChangePassword) {
-//            dialog = new AlertChangePasswordDialog(context)
-//                    .openChangePasswordDialog();
+            dialog = new AlertChangePasswordDialog(context)
+                    .openChangePasswordDialog();
         } else if (id == R.id.menuLogout) {
             AlertDialog dialog = DialogUtils.logoutDialog(context);
             dialog.show();
@@ -105,7 +110,7 @@ public class DashboardActivity extends AppCompatActivity {
                     selectedFragment = new HistoryFragment();
                     title = "History";
                 } else if (id == R.id.menuFavorite) {
-//                    selectedFragment = new FavoriteFragment();
+                    selectedFragment = new FavoriteFragment();
                     title = "Favorite";
                 }
 
