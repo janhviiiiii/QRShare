@@ -1,5 +1,3 @@
-![generate](https://github.com/user-attachments/assets/2340fcbe-408a-4624-9890-6e74f83cb9a8)---
-
 # QR Share Project
 
 The **QR Share** project stands out for its comprehensive approach, integrating QR code generation, scanning, and various data transfer options into a single, cohesive platform. This design addresses the need for a streamlined and versatile system that enables users to effortlessly create, scan, and share QR codes.
