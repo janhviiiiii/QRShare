@@ -170,7 +170,7 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("Event");
+                qrCode.setType(Constants.GENERATED + "Event");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

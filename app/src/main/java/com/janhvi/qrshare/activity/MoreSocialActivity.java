@@ -193,7 +193,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("LinkedIn Profile");
+                    qrCode.setType(Constants.GENERATED + "LinkedIn Profile");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);
@@ -235,7 +235,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("WhatsApp Number");
+                    qrCode.setType(Constants.GENERATED + "WhatsApp Number");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);
@@ -277,7 +277,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("Spotify Song");
+                    qrCode.setType(Constants.GENERATED + "Spotify Song");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);
@@ -318,7 +318,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("Pinterest Username");
+                    qrCode.setType(Constants.GENERATED + "Pinterest Username");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);
@@ -359,7 +359,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("Snapchat Username");
+                    qrCode.setType(Constants.GENERATED + "Snapchat Username");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);
@@ -400,7 +400,7 @@ public class MoreSocialActivity extends AppCompatActivity implements View.OnClic
                     byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                     QRCode qrCode = new QRCode();
                     qrCode.setContent(content);
-                    qrCode.setType("X Username");
+                    qrCode.setType(Constants.GENERATED + "X Username");
                     qrCode.setDate(Helper.getCurrentDate());
                     qrCode.setTime(Helper.getCurrentTime());
                     qrCode.setImage(imageBytes);

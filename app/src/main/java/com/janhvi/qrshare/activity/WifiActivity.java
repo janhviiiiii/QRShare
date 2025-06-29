@@ -116,7 +116,7 @@ public class WifiActivity extends AppCompatActivity implements View.OnClickListe
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap);
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("WiFi");
+                qrCode.setType(Constants.GENERATED + "WiFi");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

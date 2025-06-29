@@ -103,11 +103,13 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
                 ivQrCode.setImageBitmap(bitmap);
             }
-            if (entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
+            boolean isHistoryView = getIntent().getBooleanExtra(String.valueOf(Constants.IS_HISTORY_VIEW), false);
+
+            if (isHistoryView  || entity.getType().equalsIgnoreCase(Constants.SCANNED)) {
                 btnCopyToClipboard.setVisibility(VISIBLE);
                 btnDownload.setVisibility(GONE);
                 tvScannedContent.setVisibility(VISIBLE);
-                tvScannedContent.setText("SCANNED CONTENT: \n" + entity.getContent());
+                tvScannedContent.setText("QR Code CONTENT: \n" + entity.getContent());
             }
         }
     }

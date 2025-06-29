@@ -113,7 +113,7 @@ public class WebsiteActivity extends AppCompatActivity implements View.OnClickLi
 
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(finalUrl);
-                qrCode.setType("Website");
+                qrCode.setType(Constants.GENERATED + "Website");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

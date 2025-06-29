@@ -89,7 +89,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("SMS");
+                qrCode.setType(Constants.GENERATED + "SMS");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

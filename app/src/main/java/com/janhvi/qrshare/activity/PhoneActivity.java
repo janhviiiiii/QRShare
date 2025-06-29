@@ -98,7 +98,7 @@ public class PhoneActivity extends AppCompatActivity implements View.OnClickList
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("Phone");
+                qrCode.setType(Constants.GENERATED + "Phone");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

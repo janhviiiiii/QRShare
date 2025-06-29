@@ -160,16 +160,30 @@ public class DbHelper extends SQLiteOpenHelper {
         return qrCode;
     }
 
+    public boolean deleteAllQRCodes() {
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
+            int rowsDeleted = db.delete(TABLE_QRCODE, null, null);
+            return rowsDeleted > 0; // returns true if any row was deleted
+        } catch (Exception e) {
+            Log.e(TAG, "Error deleting all QR codes: ", e);
+            return false;
+        }
+    }
+
 
     private QRCode getQRCodeFromCursor(Cursor cursor) {
-        QRCode question = new QRCode();
-        question.setQid(cursor.getInt(cursor.getColumnIndexOrThrow(QRCODE_ID)));
-        question.setContent(cursor.getString(cursor.getColumnIndexOrThrow(CONTENT)));
-        question.setType(cursor.getString(cursor.getColumnIndexOrThrow(TYPE)));
-        question.setDate(cursor.getString(cursor.getColumnIndexOrThrow(DATE)));
-        question.setTime(cursor.getString(cursor.getColumnIndexOrThrow(TIME)));
-        question.setImage(Arrays.toString(cursor.getBlob(cursor.getColumnIndexOrThrow(IMAGE))).getBytes());
-        question.setIsFavorite(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(IS_FAVORITE))));
-        return question;
+        QRCode qrCode = new QRCode();
+        qrCode.setQid(cursor.getInt(cursor.getColumnIndexOrThrow(QRCODE_ID)));
+        qrCode.setContent(cursor.getString(cursor.getColumnIndexOrThrow(CONTENT)));
+        qrCode.setType(cursor.getString(cursor.getColumnIndexOrThrow(TYPE)));
+        qrCode.setDate(cursor.getString(cursor.getColumnIndexOrThrow(DATE)));
+        qrCode.setTime(cursor.getString(cursor.getColumnIndexOrThrow(TIME)));
+//        question.setImage(Arrays.toString(cursor.getBlob(cursor.getColumnIndexOrThrow(IMAGE))).getBytes());
+        qrCode.setImage(cursor.getBlob(cursor.getColumnIndexOrThrow(IMAGE)));
+
+//        qrCode.setIsFavorite(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(IS_FAVORITE))));
+        qrCode.setIsFavorite(cursor.getInt(cursor.getColumnIndexOrThrow(IS_FAVORITE)));
+
+        return qrCode;
     }
 }

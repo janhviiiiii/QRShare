@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.janhvi.qrshare.R;
 import com.janhvi.qrshare.fragment.GenerateFragment;
+import com.janhvi.qrshare.fragment.HistoryFragment;
 import com.janhvi.qrshare.fragment.ScanFragment;
 import com.janhvi.qrshare.utility.DialogUtils;
 
@@ -101,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
                     selectedFragment = new ScanFragment();
                     title = "Scan";
                 } else if (id == R.id.menuHistory) {
-//                    selectedFragment = new HistoryFragment();
+                    selectedFragment = new HistoryFragment();
                     title = "History";
                 } else if (id == R.id.menuFavorite) {
 //                    selectedFragment = new FavoriteFragment();

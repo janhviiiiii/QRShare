@@ -173,7 +173,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("Location");
+                qrCode.setType(Constants.GENERATED + "Location");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

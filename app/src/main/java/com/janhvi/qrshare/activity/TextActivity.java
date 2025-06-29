@@ -83,7 +83,7 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("Text"); // You can modify as per your type structure
+                qrCode.setType(Constants.GENERATED + "Text"); // You can modify as per your type structure
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);

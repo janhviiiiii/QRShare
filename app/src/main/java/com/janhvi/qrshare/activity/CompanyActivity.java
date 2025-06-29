@@ -91,7 +91,7 @@ public class CompanyActivity extends AppCompatActivity implements View.OnClickLi
                 byte[] imageBytes = Helper.bitmapToByteArray(bitmap); // convert Bitmap to byte[]
                 QRCode qrCode = new QRCode();
                 qrCode.setContent(content);
-                qrCode.setType("Company");
+                qrCode.setType(Constants.GENERATED + "Company");
                 qrCode.setDate(Helper.getCurrentDate());
                 qrCode.setTime(Helper.getCurrentTime());
                 qrCode.setImage(imageBytes);
