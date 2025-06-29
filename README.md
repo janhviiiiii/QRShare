@@ -1,4 +1,4 @@
----
+![generate](https://github.com/user-attachments/assets/2340fcbe-408a-4624-9890-6e74f83cb9a8)---
 
 # QR Share Project
 
@@ -39,8 +39,10 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 <br>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/a9522ebe-7900-4001-aae6-51b16627ff06" width="300" alt="Generate QR Code 1" />
-  <img src="https://github.com/user-attachments/assets/5a253d7e-72f3-4e59-8056-48e29f9e21e9" width="300" alt="Generate QR Code 2" />
+  <img src="![generate](https://github.com/user-attachments/assets/5f9cbd7a-e992-4a4e-8540-1a8a236fc62b)" width="300" alt="Generate QR Code 1" />
+  <img src="![generatescreen](https://github.com/user-attachments/assets/f4835072-aae5-46bd-9860-2aa52f4a143b)" width="300" alt="Generate QR Code 2" />
+  <img src="![generatedqr](https://github.com/user-attachments/assets/cf67930d-4718-4d41-ad55-c49ed91bb5a1)" width="300" alt="Generate QR Code 3" />
+
 </div>
 
 <br>
@@ -50,8 +52,8 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 <br>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/6855194e-7c03-4259-b4e8-b18af5460f72" width="300" alt="Scan QR Code 1" />
-  <img src="https://github.com/user-attachments/assets/c35f0291-d483-47c4-b040-2e9bc8df6ac5" width="300" alt="Scan QR Code 2" />
+  <img src="![scan](https://github.com/user-attachments/assets/367f2b9a-0d3b-4c07-adae-27bc909edb30)" width="300" alt="Scan QR Code 1" />
+  <img src="![scanscreen](https://github.com/user-attachments/assets/386900b1-ac5b-4d52-98b4-fe64d6bedb0a)" width="300" alt="Scan QR Code 2" />
 </div>
 
 <br>
@@ -61,8 +63,8 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 <br>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/4c4e2f6b-f6b4-4c4a-b82b-e5b37ea5438e" width="300" alt="History 1" />
-  <img src="https://github.com/user-attachments/assets/08cde180-56c8-48b2-afa0-0e473590a71c" width="300" alt="History 2" />
+  <img src="![history](https://github.com/user-attachments/assets/7a906efb-82b8-4782-95bf-e651ddd4ce98)" width="300" alt="History 1" />
+  <img src="![history2](https://github.com/user-attachments/assets/0881d993-290f-4a41-a136-28f57e934dc1)" width="300" alt="History 2" />
 </div>
 
 <br>
@@ -72,7 +74,7 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 <br>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/91c9d719-b495-426b-bcc9-e081de729608" width="300" alt="Favorite Section" />
+  <img src="![favorite](https://github.com/user-attachments/assets/0c612d3c-5368-415c-a976-ce2131972503)" width="300" alt="Favorite Section" />
 </div>
 
 <br>
@@ -82,8 +84,7 @@ The **QR Share** project stands out for its comprehensive approach, integrating 
 <br>
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/77f73e24-1adf-4514-a4c8-33c9469d27d5" width="300" alt="More Section" />
-  <img src="https://github.com/user-attachments/assets/e4e11f57-e9a0-4f35-9dc4-f4b51d3477cc" width="300" alt="More Section about us" />
+  <img src="![more](https://github.com/user-attachments/assets/969aeea7-80b9-49ad-b847-a6c6a11826e8)" width="300" alt="More Section" />
 </div>
 
 <br>
